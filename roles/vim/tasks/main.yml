@@ -1,0 +1,103 @@
+---
+- name: Install prerequisits for vim
+  apt:
+    name: libx11-dev,libxtst-dev,libxt-dev,libsm-dev,libxpm-dev
+    state: present
+  become: true
+
+- name: Download vim source
+  git:
+    repo: https://github.com/vim/vim.git
+    dest: ~/src/vim
+
+- name: Run configure on vim source
+  command: ./configure --with-features=normal --enable-gui --with-x
+  args:
+    chdir: ~/src/vim
+
+- name: Run make on vim source
+  make:
+    chdir: ~/src/vim
+
+- name: Copy vim configuration
+  copy:
+    src: .vimrc
+    dest: ~
+
+- name: Create directory for pathogen
+  file:
+    path: ~/.vim/autoload
+    state: directory
+
+- name: Create directory for pathogen plugins
+  file:
+    path: ~/.vim/bundle
+    state: directory
+
+- name: Install pathogen
+  command: curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+- name: Install NERDTree
+  git:
+    repo: https://github.com/scrooloose/nerdtree.git
+    dest: ~/.vim/bundle/nerdtree
+
+- name: Install lightline
+  git:
+    repo: https://github.com/itchyny/lightline.vim
+    dest: ~/.vim/bundle/lightline.vim
+
+- name: Install vim-devicons
+  git:
+    repo: https://github.com/ryanoasis/vim-devicons
+    dest: ~/.vim/bundle/vim-devicons
+
+- name: Install buftabline
+  git:
+    repo: https://github.com/ap/vim-buftabline.git
+    dest: ~/.vim/bundle/vim-buftabline
+
+- name: Install rupza theme
+  git:
+    repo: https://github.com/felipesousa/rupza.git
+    dest: ~/.vim/bundle/rupza
+
+- name: Install CtrlP
+  git:
+    repo: https://github.com/ctrlpvim/ctrlp.vim.git
+    dest: ~/.vim/bundle/ctrlp
+
+- name: Install NERDTree git plugin
+  git:
+    repo: https://github.com/Xuyuanp/nerdtree-git-plugin.git
+    dest: ~/.vim/bundle/nerdtree-git-plugin
+
+- name: Install gitgutter
+  git:
+    repo: git://github.com/airblade/vim-gitgutter.git
+    dest: ~/.vim/bundle/vim-gitgutter.git
+
+- name: Install vim-ruby
+  git:
+    repo: https://github.com/vim-ruby/vim-ruby.git
+    dest: ~/.vim/bundle/vim-ruby.git
+
+- name: Install vim-rails
+  git:
+    repo: https://github.com/tpope/vim-rails.git
+    dest: ~/.vim/bundle/vim-rails.git
+
+- name: Install vim-dispatch
+  git:
+    repo: https://github.com/tpope/vim-dispatch.git
+    dest: ~/.vim/bundle/vim-dispatch.git
+
+- name: Install vim-bundler
+  git:
+    repo: https://github.com/tpope/vim-bundler.git
+    dest: ~/.vim/bundle/vim-bundler.git
+
+- name: Install VimCompletesMe
+  git:
+    repo: https://github.com/ajh17/VimCompletesMe.git
+    dest: ~/.vim/bundle/VimCompletesMe.git
