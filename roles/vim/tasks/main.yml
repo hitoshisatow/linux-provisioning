@@ -1,7 +1,18 @@
 ---
+- name: Remove Ubuntu maintained vim package
+  apt:
+    name: vim
+    state: absent
+  become: true
+
+- name: Remove unused packages
+  apt:
+    autoremove: yes
+  become: true
+
 - name: Install prerequisits for vim
   apt:
-    name: libx11-dev,libxtst-dev,libxt-dev,libsm-dev,libxpm-dev
+    name: libx11-dev,libxtst-dev,libxt-dev,libsm-dev,libxpm-dev,libncurses5-dev
     state: present
   become: true
 
@@ -15,14 +26,20 @@
   args:
     chdir: ~/src/vim
 
-- name: Run make on vim source
+- Name: Run make on vim source
   make:
     chdir: ~/src/vim
+
+- Name: Install vim
+  make:
+    chdir: /home/hsatow/src/vim
+    target: install
+  become: true
 
 - name: Copy vim configuration
   copy:
     src: .vimrc
-    dest: ~
+    dest: ~/
 
 - name: Create directory for pathogen
   file:
@@ -46,11 +63,6 @@
   git:
     repo: https://github.com/itchyny/lightline.vim
     dest: ~/.vim/bundle/lightline.vim
-
-- name: Install vim-devicons
-  git:
-    repo: https://github.com/ryanoasis/vim-devicons
-    dest: ~/.vim/bundle/vim-devicons
 
 - name: Install buftabline
   git:
