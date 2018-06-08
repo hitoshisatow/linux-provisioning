@@ -7,6 +7,10 @@
     import_role:
       name: desktop
 
+  - name: Install oh-my-zsh
+    import_role:
+      name: oh-my-zsh
+
   - name: Install vim
     import_role:
       name: vim
