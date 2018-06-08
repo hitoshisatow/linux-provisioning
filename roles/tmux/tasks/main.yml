@@ -1,7 +1,7 @@
 ---
 - name: Install prerequisits for tmux
   apt:
-    name: build-essential,autotools-dev,automake,libevent,libevent-dev,libncurses,libncurses5-dev
+    name: build-essential,autotools-dev,automake,libncurses,libncurses5-dev
     state: present
   become: true
 
