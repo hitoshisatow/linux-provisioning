@@ -1,0 +1,31 @@
+---
+- name: Install prerequisits for tmux
+  apt:
+    name: build-essential,autotools-dev,aclocal,automake,libevent,libevent-dev,libncurses,libncurses5-dev
+    state: present
+  become: true
+
+- name: Download vim source
+  git:
+    repo: https://github.com/tmux/tmux.git
+    dest: ~/src/tmux
+
+- name: Run configure on tmux source
+  command: ./configure
+  args:
+    chdir: ~/src/tmux
+
+- Name: Run make on tmux source
+  make:
+    chdir: ~/src/tmux
+
+- Name: Install tmux
+  make:
+    chdir: /home/hsatow/src/tmux
+    target: install
+  become: true
+
+- name: Copy tmux configuration
+  copy:
+    src: .tmux.conf
+    dest: ~/

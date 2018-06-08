@@ -14,3 +14,7 @@
   - name: Install vim
     import_role:
       name: vim
+
+  - name: Install tmux
+    import_role:
+      name: tmux
