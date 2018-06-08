@@ -1,0 +1,21 @@
+---
+- name: Install xorg, openbox and lightdm
+  apt:
+    name: xorg,openbox,lightdm,lightdm-gtk-greeter,lightdm-gtk-greeter-settings
+    state: present
+  become: true
+
+- name: Create directory for openbox configuration
+  file:
+    path: ~/.config/openbox
+    state: directory
+
+- name: Copy main configuration
+  copy:
+    src: rc.xml
+    dest: ~/.config/openbox/
+
+- name: Copy menu configuration
+  copy:
+    src: menu.xml
+    dest: ~/.config/openbox/

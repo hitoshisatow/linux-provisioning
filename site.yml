@@ -3,6 +3,10 @@
   connection: local
   
   tasks:
+  - name: Install desktop environment
+    import_role:
+      name: desktop
+
   - name: Install vim
     import_role:
       name: vim
