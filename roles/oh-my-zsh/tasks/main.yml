@@ -5,13 +5,18 @@
     state: present
   become: true
 
-- name: Download oh-my-zsh
-  get_url:
-    url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-    dest: /tmp/zsh-install.sh
-    mode: 0755
+- name: Download vim source
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh.git
+    dest: ~/.oh-my-zsh
 
-- name: Install oh-my-zsh
-  command: /tmp/zsh-install.sh
-  args:
-    chdir: ~/
+
+- name: Copy zshrc template from oh-my-zsh
+  copy:
+    src: ~/.oh-my-zsh/templates/zshrc.zsh-template
+    dest: ~/.zshrc
+
+- name: Change shell to zsh
+  user:
+    name: hsatow
+    shell: /bin/zsh
