@@ -12,7 +12,7 @@
 
 - name: Install prerequisits for vim
   apt:
-    name: libx11-dev,libxtst-dev,libxt-dev,libsm-dev,libxpm-dev,libncurses5-dev
+    name: build-essential,libx11-dev,libxtst-dev,libxt-dev,libsm-dev,libxpm-dev,libncurses5-dev
     state: present
   become: true
 
