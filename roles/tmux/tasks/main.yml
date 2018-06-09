@@ -5,10 +5,15 @@
     state: present
   become: true
 
-- name: Download vim source
+- name: Download tmux source
   git:
     repo: https://github.com/tmux/tmux.git
     dest: ~/src/tmux
+
+- name: Run configure on tmux source
+  command: sh autogen.sh
+  args:
+    chdir: ~/src/tmux
 
 - name: Run configure on tmux source
   command: ./configure
