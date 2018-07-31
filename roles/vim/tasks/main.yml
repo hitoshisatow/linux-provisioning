@@ -22,7 +22,7 @@
     dest: ~/src/vim
 
 - name: Run configure on vim source
-  command: ./configure --with-features=normal --enable-gui --with-x
+  command: ./configure --with-features=normal --enable-gui --with-x --enable-rubyinterp
   args:
     chdir: ~/src/vim
 
