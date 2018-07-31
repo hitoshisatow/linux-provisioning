@@ -109,7 +109,7 @@
     repo: https://github.com/tpope/vim-bundler.git
     dest: ~/.vim/bundle/vim-bundler.git
 
-- name: Install VimCompletesMe
+- name: Install Ruby Debugger
   git:
-    repo: https://github.com/ajh17/VimCompletesMe.git
-    dest: ~/.vim/bundle/VimCompletesMe.git
+    repo: git://github.com/astashov/vim-ruby-debugger.git
+    dest: ~/.vim/bundle/vim-ruby-debugger.git
