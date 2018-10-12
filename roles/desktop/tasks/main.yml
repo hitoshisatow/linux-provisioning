@@ -1,7 +1,7 @@
 ---
 - name: Install xorg, openbox and lightdm
   apt:
-    name: xorg,openbox,lightdm,lightdm-gtk-greeter,lightdm-gtk-greeter-settings,tmux,stterm,chromium-browser
+    name: xorg,openbox,lightdm,lightdm-gtk-greeter,lightdm-gtk-greeter-settings,tmux,stterm,gmrun,chromium-browser
     state: present
   become: true
 
