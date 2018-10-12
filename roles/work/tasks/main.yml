@@ -18,3 +18,13 @@
   apt:
     deb: /tmp/zoom_amd64.deb
   become: true
+
+- name: Download DBeaver client
+  get_url:
+    url: https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+    dest: /tmp/dbeaver-ce_latest_amd64.deb
+
+- name: Install DBeaver deb package
+  apt:
+    deb: /tmp/dbeaver-ce_latest_amd64.deb
+  become: true
