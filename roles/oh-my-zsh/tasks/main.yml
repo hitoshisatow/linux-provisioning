@@ -13,7 +13,7 @@
 
 - name: Copy zshrc template from oh-my-zsh
   copy:
-    src: ~/.oh-my-zsh/templates/zshrc.zsh-template
+    src: .zshrc
     dest: ~/.zshrc
 
 - name: Change shell to zsh
