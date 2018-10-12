@@ -1,5 +1,7 @@
 # linux-provisioning
 
+sudo add-apt-repository universe
+
 sudo add-apt-repository ppa:ansible/ansible
 
 sudo apt-get update
