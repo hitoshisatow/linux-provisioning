@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu xmlns="http://openbox.org/3.4/menu">
 	<menu id="applications-menu" label="Applications">
-		<item label="xterm">
+		<item label="stterm">
 			<action name="Execute">
 				<command>
-					xterm
+					stterm
 				</command>
 				<startupnotify>
 					<enabled>

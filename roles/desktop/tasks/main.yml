@@ -1,7 +1,7 @@
 ---
 - name: Install xorg, openbox and lightdm
   apt:
-    name: xorg,openbox,lightdm,lightdm-gtk-greeter,lightdm-gtk-greeter-settings,tmux,suckless-tools
+    name: xorg,openbox,lightdm,lightdm-gtk-greeter,lightdm-gtk-greeter-settings,tmux,stterm
     state: present
   become: true
 
