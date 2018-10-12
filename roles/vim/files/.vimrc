@@ -42,7 +42,7 @@ set clipboard=unnamedplus
 " Set line numbers
 set number
 
-let g:ctrlp_map = '<C-z>'
+let g:ctrlp_map = '<leader>f'
 let g:ctrlp_cmd = 'CtrlP'
 
 " Keybindings
