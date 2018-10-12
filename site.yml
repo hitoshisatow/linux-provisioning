@@ -14,3 +14,7 @@
   - name: Install vim
     import_role:
       name: vim
+
+  - name: Install work applications
+    import_role:
+      name: work

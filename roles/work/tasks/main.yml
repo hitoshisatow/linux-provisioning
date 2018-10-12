@@ -1,0 +1,18 @@
+---
+- name: Download Slack deb package
+  get_url:
+    url: https://downloads.slack-edge.com/linux_releases/slack-desktop-3.3.3-amd64.deb
+    dest: /tmp/slack-desktop-3.3.3-amd64.deb
+
+- name: Install Slack deb package
+  apt:
+    deb: /tmp/slack-desktop-3.3.3-amd64.deb
+
+- name: Download Zoom deb package
+  get_url:
+    url: https://zoom.us/client/latest/zoom_amd64.deb
+    dest: /tmp/zoom_amd64.deb
+
+- name: Install Zoom deb package
+  apt:
+    deb: /tmp/zoom_amd64.deb
