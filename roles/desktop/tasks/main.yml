@@ -5,6 +5,11 @@
     state: present
   become: true
 
+- name: Copy tmux configuration file
+  copy:
+    src: .tmux.conf
+    dest: ~/
+
 - name: Create directory for openbox configuration
   file:
     path: ~/.config/openbox
