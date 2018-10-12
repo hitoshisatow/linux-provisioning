@@ -7,6 +7,7 @@
 - name: Install Slack deb package
   apt:
     deb: /tmp/slack-desktop-3.3.3-amd64.deb
+  become: true
 
 - name: Download Zoom deb package
   get_url:
@@ -16,3 +17,4 @@
 - name: Install Zoom deb package
   apt:
     deb: /tmp/zoom_amd64.deb
+  become: true
