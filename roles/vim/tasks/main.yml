@@ -26,11 +26,11 @@
   args:
     chdir: ~/src/vim
 
-- Name: Run make on vim source
+- name: Run make on vim source
   make:
     chdir: ~/src/vim
 
-- Name: Install vim
+- name: Install vim
   make:
     chdir: /home/hsatow/src/vim
     target: install
